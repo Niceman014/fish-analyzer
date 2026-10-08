@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fish Analyzer - AI Vision & Species Detection</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐟 Fish Analyzer AI</h1>
+      <p>Upload any fish photo to detect species, estimated weight, and full nutritional profile.</p>
+    </header>
+
+    <main class="main-content">
+      <section class="upload-card">
+        <form id="uploadForm">
+          <div class="drop-zone" id="dropZone">
+            <span class="drop-zone-prompt">Drag & drop fish image here or click to browse</span>
+            <input type="file" id="imageInput" accept="image/*" class="drop-zone-input">
+          </div>
+          <div id="previewContainer" class="hidden">
+            <img id="imagePreview" src="" alt="Selected Fish Preview">
+          </div>
+          <button type="submit" id="analyzeBtn" disabled>Analyze Fish</button>
+        </form>
+      </section>
+
+      <section class="results-card hidden" id="resultsSection">
+        <div id="loading" class="spinner-container hidden">
+          <div class="spinner"></div>
+          <p>Analyzing image using VLM...</p>
+        </div>
+
+        <div id="analysisDetails" class="hidden">
+          <h2 id="fishName">Fish Name</h2>
+          
+          <div class="grid-stats">
+            <div class="stat-box">
+              <h3>Est. Weight</h3>
+              <p id="estWeight">-</p>
+            </div>
+            <div class="stat-box">
+              <h3>Calories / 100g</h3>
+              <p id="calories">-</p>
+            </div>
+            <div class="stat-box">
+              <h3>Protein</h3>
+              <p id="protein">-</p>
+            </div>
+            <div class="stat-box">
+              <h3>Fat / Omega-3</h3>
+              <p id="fats">-</p>
+            </div>
+          </div>
+
+          <div class="section-block">
+            <h3>Freshness & Quality</h3>
+            <p id="freshness">-</p>
+          </div>
+
+          <div class="section-block">
+            <h3>Vitamins & Minerals</h3>
+            <ul id="vitaminsList"></ul>
+          </div>
+
+          <div class="section-block">
+            <h3>Description & Culinary Notes</h3>
+            <p id="description">-</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
